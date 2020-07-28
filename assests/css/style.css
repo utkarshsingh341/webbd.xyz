@@ -1,0 +1,264 @@
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+/* Page Styling */
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	line-height: 17px;
+	font-family: Product Sans, Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+	letter-spacing: 0.5px;
+	background-color: #eeeeee;
+	font-size: 15px;
+	font-weight: lighter;
+	color: #646464;
+}
+a:hover{
+	text-decoration: none;
+}
+.top_bar{
+	background: #335eea;
+	width:100%;
+	height: 60px;
+	min-width: 1050px;
+	margin: 0 0 10px 0;
+	display: inline-flex;
+	position: fixed;
+	z-index: 10;
+}
+.logo img{ 
+	margin-left: 10px;
+	top: 16px;
+	left: 5px;
+	position: relative;
+	height: 27px;
+	width: 96px;
+}
+.logo{
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.6;
+    text-align: left;
+}
+nav a{
+	position: relative;;
+	color: #fff;
+	text-decoration: none;
+	font-size: 21px;
+}
+nav{
+	float: right;
+	top: 5px;
+	right: 10px;
+	position: absolute;
+	margin: 12px 20px;
+	word-spacing: 14px;
+	color: #fff;
+	width: 50%;
+	text-align: right;
+	line-height: 1.6;
+}
+nav a:hover{
+	color: #d1dafa;
+	text-decoration: none;
+}
+.nav_profile_pic
+{
+	border-radius: 50%;
+	object-fit: cover;
+    height:20px;
+ 	width:20px;
+}
+.main_profile_pic{
+	border-radius: 50%;
+	object-fit: cover;
+    height:120px;
+ 	width:120px;
+	box-shadow:  2px 2px 1px #d3d3d3;
+ 	margin: 10px 0px 20px 0px;
+}
+.wrapper{
+	margin: 0px;
+	top: 60px;
+	position: relative;
+	padding: 20px 10px;
+	min-width: 950px;
+}
+.column{
+	background: #fff;
+	padding: 10px;
+	border-radius: 4px;
+	box-shadow:  1px 1px 0.5px #d3d3d3;
+	z-index: -1;
+}
+ion-icon{
+	font-size: 24px;
+}
+.wrapper{
+	margin: 0px;
+	top: 60px;
+	position: relative;
+	padding: 20px 10px;
+	min-width: 950px;
+}
+.container{
+	margin: 0px auto;
+	padding: 0px;
+}
+.user_details{
+	width: 100%;
+	float: left;
+	margin-bottom: 20px;
+	padding: 25px;
+	text-align: center;
+}
+.wh-sp{
+	padding: 10px;
+	height: 20px;
+}
+.footer-style{
+	margin: 17px;
+}
+.footer-style li{
+	text-decoration: none;
+	display: inline-block;
+	padding: 3px;
+}
+.count_table{
+	margin: 0px auto;
+	width: 70%
+}
+.count_table td{
+	padding: 4px 5px 7px 5px;
+}
+.about-style-tab{
+	margin-top: 9px;
+	width: 100%;
+}
+.about-style-tab td{
+	padding: 5px;
+	font-size: 14px;
+}
+.about-style-tab td{
+	border: none;
+}
+.about-style-tab tr:last-child{
+	border-bottom: none;
+}
+.about-style-tab ion-icon{
+	font-size: 16px;
+}
+.main_column{
+	padding: 14px;
+}
+.cursorp{
+	cursor: pointer;
+}
+.post_form{
+	width: 100%;
+}
+.post_form textarea{
+	width: 82%;
+	height: 50px;
+	border-radius: 5px;
+	margin-right: 10px;;
+	border: 1px solid #a1a1a1;
+	padding: 10px;
+	font-size: 14px;
+	min-height: 50px;
+}
+textarea:focus{
+	outline: none;
+	height: 150px;
+	-webkit-transition: height 1s; /* Safari prior 6.1 */
+  	transition: height 1s;
+}
+.post_form button{
+	width: 13%;
+	height: 50px;
+	border: none;
+	background: #335eea;
+	color: #fff;
+	font-family: Product Sans, Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+	position: absolute;
+	outline: none;
+	margin: 0px;
+	border-radius: 5px;
+}
+.post_form button:active{
+	padding: 5px 4px 4px 5px;
+	background: #0056b3;
+}
+.profile_pic_post{
+	border-radius: 50%;
+	object-fit: cover;
+    height:40px;
+ 	width:40px;
+	box-shadow:  1px 1px 0.5px #d3d3d3;
+}
+.wh-sp2{
+	padding: 4px;
+	height: 13px;
+}
+.post_name{
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+.post_time{
+	font-size: 12px;
+}
+.col-sm
+{
+	font-family: Product Sans, Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+	
+}
+/*Comment Section Styling*/
+.newsfeedPostOptions
+{
+	padding: 10px 30px 0px 0px;
+	border-top: 0.5px solid #e4e4e4;
+	margin-top:20px;
+	margin-right: 14px;
+	font-size: 14px;
+}
+.newsfeedPostOptions iframe
+{
+	border:0px;
+	height: 19px;
+	width: 100px;
+}
+.likes-ul{
+	list-style: none;
+}
+.likes-ul li{
+	display: inline-block;
+}
+.comment_like{
+	width: 50px;
+	height: 19px;
+	font-size: 14px;
+	border: none;
+	color: #fff;
+	border-radius: 2px;
+}
+iframe, label
+{
+	display: inline-block;
+  	vertical-align: middle;
+  	margin: 5px 0;
+}
