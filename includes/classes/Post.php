@@ -11,6 +11,7 @@ class Post {
 	public function submitPost($body, $user_to) {
 		$body = strip_tags($body); //removes html tags 
 		$body = mysqli_real_escape_string($this->con, $body);
+		$body = str_replace(array("\\r\\n", "\\r", "\\n"), "<br />", $body);
 		$check_empty = preg_replace('/\s+/', '', $body); //Deltes all spaces 
       
 		if($check_empty != "") {
@@ -71,7 +72,7 @@ class Post {
 					$user_to = "";
 				}
 				else {
-					$user_to_obj = new User($con, $row['user_to']);
+					$user_to_obj = new User($this->con, $row['user_to']);
 					$user_to_name = $user_to_obj->getFirstAndLastName();
 					$user_to = "to <a href='" . $row['user_to'] ."'>" . $user_to_name . "</a>";
 				}
@@ -206,7 +207,7 @@ class Post {
 							    
 							    <div class='newsfeedPostOptions'>
 
-							    	<iframe src='like.php?post_id=$id' scrolling='no'></iframe> &middot;&thinsp; 
+							    	<iframe src='like.php?post_id=$id' frameborder='0' scrolling='no' style='width:112px;'></iframe>&middot;&nbsp; 
 							    	<label>$comments_check_num Comments</label>
 
 
