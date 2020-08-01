@@ -72,43 +72,68 @@ if(isset($_POST['post_button']))
 	    				</tr>
 	    			</table>
 				</div>
-				<div class="card" style="border: 1px solid #eee;">
-				  <div class="card-body" style="padding: 0px;">
-				  	<form action="<?php echo $username; ?>" method="POST">
 
-				  		<?php
-				  			$profile_user_obj = new User($con, $username);
-				  			if($profile_user_obj->isClosed())
-				  			{
-				  				header("Location: user_closed.php");
-				  			}
+				<?php
 
-				  			$logged_in_user_obj = new User($con, $userLoggedIn);
-				  			if($userLoggedIn!=$username)
-				  			{
-				  				if($logged_in_user_obj->isFriend($username))
-				  				{
-				  					echo '<input type="submit" name="remove_friend" class="frnd_button" value="Remove Friend"> ';
-				  				}else if($logged_in_user_obj->didRecieveRequest($username)){
-				  					echo '<input type="submit" name="respond_request" class="frnd_button" value="Respond to Request"> ';
+					if($userLoggedIn!=$username)
+					{
 
-				  				}else if($logged_in_user_obj->didSendRequest($username))
-				  				{
-				  					echo '<input type="submit" name="respond_request" class="frnd_button" value="Request Sent"> ';
-				  				}else{
-				  					echo '<input type="submit" name="add_friend" class="frnd_button" value="Add Friend"> ';
-				  				}
-				  			}
+				?>
+					<div class="card" style="border: 1px solid #fff;box-shadow:  1px 1px 0.5px #ddd;">
+					  <div class="card-body" style="padding: 20px 10px;">
 
-				  		?>
-				  	</form>
-				  </div>
-				</div>
+						<p style="text-align:center; margin:0px;">
+		    				<?php 
+		    					$logged_in_user_obj = new User($con, $userLoggedIn);
+		    					if($userLoggedIn!=$username)
+		    					{
+		    						echo '<label style="font-weight: bold;">Mutual Connections: &thinsp;';
+		    						echo $logged_in_user_obj->getMutualFriends($username)." </label>";
+		    					}
+		    				?>
+		    			</p>
+					  	<form action="<?php echo $username; ?>" method="POST">
+
+					  		<?php
+					  			$profile_user_obj = new User($con, $username);
+					  			if($profile_user_obj->isClosed())
+					  			{
+					  				header("Location: user_closed.php");
+					  			}
+
+					  			$logged_in_user_obj = new User($con, $userLoggedIn);
+					  			if($userLoggedIn!=$username)
+					  			{
+					  				if($logged_in_user_obj->isFriend($username))
+					  				{
+					  					echo '<input type="submit" name="remove_friend" class="frnd_button" value="Remove Friend"> ';
+					  				}else if($logged_in_user_obj->didRecieveRequest($username)){
+					  					echo '<input type="submit" name="respond_request" class="frnd_button" value="Respond to Request"> ';
+
+					  				}else if($logged_in_user_obj->didSendRequest($username))
+					  				{
+					  					echo '<input type="submit" name="respond_request" class="frnd_button" value="Request Sent"> ';
+					  				}else{
+					  					echo '<input type="submit" name="add_friend" class="frnd_button" value="Add Friend"> ';
+					  				}
+					  			}
+
+					  		?>
+					  	</form>
+					  </div>
+					</div>
+				<?php
+
+					}
+
+				?>
+				
 	      	</div>
 			<div class="col-8">
-				<div class="main_column column">
+				<div class="main_column column" style="margin-bottom: 20px; text-align: right;">
+					
 					<!-- Button trigger modal -->
-					<input type="submit" data-toggle="modal" data-target="#post_form" value="Post Something!" name="" class="btn btn-primary">
+					<input type="submit" data-toggle="modal" data-target="#post_form" value="Post Something!" name="" class="btn btn-primary" style="">
 
 					<!-- Modal -->
 					<div class="modal fade" id="post_form" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
@@ -138,8 +163,63 @@ if(isset($_POST['post_button']))
 					  </div>
 					</div>
 		      	</div>
+		      	<div class="posts_area"></div>
+				<img src="assests/images/misc/loading.gif" id="loading" height="20" width="20" align="center">
 		    </div>
 		</div>
+		<script>
+					var userLoggedIn = '<?php echo $userLoggedIn; ?>';
+					var profileUsername = '<?php echo $username; ?>'; 
+					$(document).ready(function() {
+						$('#loading').show();
+
+						//Original ajax request for loading first posts 
+						$.ajax({
+							url: "includes/handlers/ajax_load_profile_posts.php",
+							type: "POST",
+							data: "page=1&userLoggedIn=" + userLoggedIn + "&profileUsername="+ profileUsername,
+							cache:false,
+
+							success: function(data) {
+								$('#loading').hide();
+								$('.posts_area').html(data);
+							}
+						});
+
+						$(window).scroll(function() {
+							var height = $(".posts_area").height(); //Div containing posts
+							var scroll_top = $(this).scrollTop();
+							var page = $(".posts_area").find(".nextPage").val();
+							var noMorePosts = $(".posts_area").find(".noMorePosts").val();
+
+							if (($(window).scrollTop() + $(window).height() >= $(document).height()) && noMorePosts == 'false') {
+								$('#loading').show();
+
+								var ajaxReq = $.ajax({
+									url: "includes/handlers/ajax_load_profile_posts.php",
+									type: "POST",
+									data: "page=" + page + "&userLoggedIn=" + userLoggedIn + "&profileUsername="+ profileUsername,
+									cache:false,
+
+									success: function(response) {
+										$('.posts_area').find('.nextPage').remove(); //Removes current .nextpage 
+										$('.posts_area').find('.noMorePosts').remove(); //Removes current .nextpage 
+
+										$('#loading').hide();
+										$('.posts_area').append(response);
+									}
+								});
+
+							} //End if 
+
+							return false;
+
+						}); //End (window).scroll(function())
+
+
+					});
+
+					</script>
 	</div>
 </body>
 </html>

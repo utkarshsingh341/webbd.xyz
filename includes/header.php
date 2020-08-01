@@ -30,6 +30,40 @@ if(isset($_SESSION['username']))
 	<script src="https://kit.fontawesome.com/6ed19eb2cf.js"></script>
 	<link rel="stylesheet" type="text/css" href="assests/css/style.css">
 	<script src="assests/js/demo.js"></script>
+	<script src="assests/js/jquery.jcrop.js"></script>
+	<script src="assests/js/jcrop_bits.js"></script>
+	<link rel="stylesheet" href="assests/css/jquery.Jcrop.css" type="text/css" />
+
+	<script>
+		
+	</script>
+	<style>
+	.main_profile_pics
+	{
+		border-radius: 50%;
+		object-fit: cover;
+	    height: 200px;
+	 	width:200px;
+		box-shadow:  2px 2px 1px #d3d3d3;
+	 	margin: 10px 0px 20px 0px;
+	}
+	.frnd_button
+	{
+		border: none;
+		width: 90%;
+		padding: 15px;
+		margin-left: 15px;
+		margin-right: 15px;
+		padding-bottom: 15px;
+		padding-left: 5px;
+		background-color: #ececec;
+		color: #747474;
+		font-weight: bold;
+		letter-spacing: 0.5px;
+		border-radius: 4px;
+		box-shadow:  1.5px 1.5px 1px #d3d3d3;
+	}
+	</style>
  
 </head>
 <body>
