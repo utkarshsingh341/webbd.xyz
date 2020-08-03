@@ -286,3 +286,105 @@ iframe, label
 	width: 50%;
 	margin:10px auto;
 }
+.you-and-h5
+{
+	margin: 0px 0px 20px 0px;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 10px;
+	font-weight: 300;
+}
+.message_post textarea
+{
+	max-height:60px;
+	padding:5px;
+	font-size: 14px;
+	width: 92%;
+	border-radius: 5px;
+	margin-right: 10px;
+	min-height: 1em;
+	height: 30px;
+	outline: none;
+	border:0px;
+	overflow: hidden;
+	resize: none;
+}
+.message_post button
+{
+	width: 5%;
+	height: 30px;
+	border: none;
+	color: #888;
+	font-family: Product Sans, Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+	position: absolute;
+	outline: none;
+	margin: 0px;
+	border-radius: 5px;
+	background-color: #fff;
+}
+.message_post button:active{
+	padding: 5px 4px 4px 5px;
+	background: #0056b3;
+}
+.message_box
+{
+	margin: 30px 5px 0px 5px;
+	border: 1px solid #a1a1a1;
+	border-radius: 20px;
+	padding: 10px 5px 5px 10px;
+}
+.message
+{	
+	display: inline-block;
+	margin: 5px;
+}
+.message#green
+{
+	padding: 10px 15px;
+	background-color: #fff;
+	float: left;
+	color: #000;
+	border-radius: 20px;
+	border: 1px solid #dfdfdf;
+}
+.message#blue
+{
+	padding: 10px 15px;
+	background-color: #dfdfdf;
+	float: right;
+	color: #242424;
+	border-radius: 20px;
+	border: 1px solid #dfdfdf;
+
+}
+.loaded_messages
+{
+	height: 250px;
+	overflow-y: scroll;
+	padding: 10px;
+}
+.user_found_message
+{
+	height: 60px;
+	border-bottom: 1px solid #ddd;
+	margin: 10px 0px;
+}
+.user_found_message
+{
+	color:#444;
+	padding: 5px;
+}
+.convo_img 
+{
+	float: left;
+	width: 18%;
+}
+.convo_img img 
+{
+	border-radius: 40px;
+}
+.convo_body
+{
+	float: right;
+	font-size: 14px;
+	width: 82%;
+}
