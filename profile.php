@@ -130,9 +130,20 @@ if(isset($_POST['post_button']))
 				
 	      	</div>
 			<div class="col-8">
+				
 				<div class="main_column column" style="margin-bottom: 20px; text-align: right;">
 					
 					<!-- Button trigger modal -->
+					<?php
+
+						if($username!=$userLoggedIn)
+						{
+					?>
+						<a class="btn btn-secondary" style="color: #fff;" href="messages.php?u=<?php echo $username; ?>">Send a message!</a> &nbsp;
+					<?php
+						}
+					?>
+					
 					<input type="submit" data-toggle="modal" data-target="#post_form" value="Post Something!" name="" class="btn btn-primary" style="">
 
 					<!-- Modal -->

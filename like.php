@@ -22,6 +22,7 @@
 		require 'config/config.php';
 		include("includes/classes/User.php");
 		include("includes/classes/Post.php");
+		include("includes/classes/Notification.php");
 
 		if (isset($_SESSION['username'])) {
 			$userLoggedIn = $_SESSION['username'];
@@ -55,7 +56,13 @@
 			$total_user_likes--;
 			$user_likes = mysqli_query($con, "UPDATE users SET num_likes='$total_user_likes' where username='$user_liked'");
 			$insert_user = mysqli_query($con, "DELETE FROM likes where username='$userLoggedIn' AND post_id='$post_id' ");
+
 			//Insert Notification
+			if($user_liked!=$userLoggedIn)
+			{
+				$notification = new Notification($con, $userLoggedIn);
+				$notification->insertNotification($post_id,$user_liked,"like");
+			}
 		}
 
 		//Dislike button

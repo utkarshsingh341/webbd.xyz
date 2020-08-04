@@ -3,6 +3,7 @@ require 'config/config.php';
 include("includes/classes/User.php");
 include("includes/classes/Post.php");
 include("includes/classes/Message.php");
+include("includes/classes/Notification.php");
  
 if(isset($_SESSION['username']))
 {
@@ -74,14 +75,53 @@ if(isset($_SESSION['username']))
 			 <a href="index.php"> <img src="assests/images/misc/logo.png"/> </a>
 		</div>
 		<nav>
+			<?php
+				//Unread messages
+				$messages = new Message($con, $userLoggedIn);
+				$num_messages = $messages->getUnreadNumber();
+
+
+				//Unread notifications
+				$notifications = new Notification($con, $userLoggedIn);
+				$num_notifications = $notifications->getUnreadNumber();
+
+
+				//Unseen Friend Request
+				$requests = new User($con, $userLoggedIn);
+				$num_requests = $requests->getFriendRequestNumber();
+			?>
 			<a href="requests.php">
 				<ion-icon name="person-add"></ion-icon>
+				<?php 
+
+				if($num_requests>0)
+				{
+					echo '<span class="notification_baddge" id="unread_message">'.$num_requests.'</span>';
+				}
+
+				?>
 			</a>
-			<a href="">
+			<a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn;?>', 'message')">
 				<ion-icon name="chatbubbles"></ion-icon>
+				<?php 
+
+				if($num_messages>0)
+				{
+					echo '<span class="notification_baddge" id="unread_message">'.$num_messages.'</span>';
+				}
+
+				?>
 			</a>
-			<a href=""> 
+			<a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn;?>', 'notification')"> 
 				<ion-icon name="notifications-outline"></ion-icon>
+				<?php 
+
+				if($num_notifications>0)
+				{
+					echo '<span class="notification_baddge" id="unread_notification">'.$num_notifications.'</span>';
+				}
+
+				?>
 			</a>
 			<a href="">
 				<ion-icon name="settings"></ion-icon>
@@ -93,5 +133,8 @@ if(isset($_SESSION['username']))
 				<ion-icon name="log-out"></ion-icon>
 			</a>
 		</nav>
+		<div class="dropdown_data_window" style="height:0px;border:none;"></div>
+		<input type="hidden" id="dropdown_data_type" value="">
 	</div>
+
 	<div class="wrapper">

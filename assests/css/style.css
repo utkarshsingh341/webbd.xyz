@@ -371,7 +371,7 @@ iframe, label
 .user_found_message
 {
 	color:#444;
-	padding: 5px;
+	padding:10px;
 }
 .convo_img 
 {
@@ -387,4 +387,80 @@ iframe, label
 	float: right;
 	font-size: 14px;
 	width: 82%;
+}
+.resultDisplay
+{
+	height: 70px;
+	border-bottom: 1px solid #eee;
+	margin: 15px 0px 0px 0px;
+}
+.resultDisplay a
+{
+	color: #333;	
+}
+.LiveSearchProfilePic
+{
+	float: left;
+	width: 11%;
+}
+.LiveSearchProfilePic img
+{
+	height: 60px;
+	width: 60px;
+	border-radius: 60px;
+}
+.LiveSearchText
+{
+	float:right;
+	width: 89%;
+}
+.dropdown_data_window
+{
+    background: #fff;
+    border-radius: 4px;
+    border-top: none;
+    width: 320px;
+    position: absolute;
+    right: 20px;
+    top: 65px;
+    overflow-y: scroll;
+}
+.notification_baddge
+{
+	font-size: 12px;
+    line-height: 1;
+    white-space: nowrap;
+    background-color: #f00;
+    padding: 2px 6px;
+    border-radius: 10px;
+    position: absolute;
+    left: 15px;
+    bottom: 17px;
+}
+.notification_show
+{
+	height: 70px;
+	border-bottom: 1px solid #eee;
+	margin: 10px 0px 0px 0px;
+	padding: 15px;
+}
+.notification_show a
+{
+	color: #333;	
+}
+.notificationsProfilePic
+{
+	float: left;
+	width: 15%;
+}
+.notificationsProfilePic img
+{
+	height: 40px;
+	width: 40px;
+	border-radius: 40px;
+}
+.notificationText
+{
+	float:right;
+	width: 80%;
 }
