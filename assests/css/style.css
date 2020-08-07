@@ -306,12 +306,6 @@ iframe, label
 	color: #000;
 	transition: color 0.5s;
 }
-.form-control
-{
-	height: 200px;
-	min-height: 200px;
-	max-height: 200px;
-}
 .delete_button
 {
 	border: none;
@@ -518,4 +512,14 @@ iframe, label
 {
 	padding: 10px;
 	text-align: center;
+}
+.settings_image
+{
+	text-align: center;
+}
+.settings_image img{
+	height: 130px;
+	width: 130px;
+	border-radius: 130px;
+	margin: 10px;
 }

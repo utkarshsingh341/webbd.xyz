@@ -160,7 +160,7 @@ if (isset($_POST['x'])){
 	    <p><b> <?=$msg?> </b></p>
 	    
 	    <form action="upload.php" method="post"  enctype="multipart/form-data">
-	        Upload something<br />Click submit to crop and submit your picture.<br /><br>
+	        <h4>Change your profile picture!</h4><hr>Click submit to crop and submit your picture.<br /><br>
 	        <input type="file" id="image" name="image" style="width:200px; height:30px; " /><br /><br />
 	        <input type="submit" value="Submit" style="width:85px; height:25px;" />
 	    </form><br /><br />

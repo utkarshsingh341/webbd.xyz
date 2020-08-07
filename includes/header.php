@@ -135,7 +135,7 @@ if(isset($_SESSION['username']))
 
 				?>
 			</a>
-			<a href="">
+			<a href="settings.php">
 				<ion-icon name="settings"></ion-icon>
 			</a>
 			<a href="<?php echo $userLoggedIn ?>"> 
