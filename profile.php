@@ -147,7 +147,8 @@ if(isset($_POST['post_button']))
 						{
 					?>
 					<div class="main_column column" style="margin-bottom: 20px; text-align: right;">
-						<a class="btn btn-secondary" style="color: #fff;" href="messages.php?u=<?php echo $username; ?>">Send a message!</a> &nbsp;
+
+						<a class="btn btn-secondary" style="color: #fff;" href="messages.php?u=<?php echo $username; ?>"> Send a message!</a> &nbsp;
 
 					
 						<input type="submit" data-toggle="modal" data-target="#post_form" value="Post Something!" name="" class="btn btn-primary" style="">

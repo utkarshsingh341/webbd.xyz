@@ -13,7 +13,7 @@ $(document).ready(function(){
 			data: $('form.profile_post').serialize(),
 			success: function(msg){
 				//$("#post_form").modal('hide');
-				lcation.reload();
+				location.reload();
 			},
 			error: function(){
 				alert("failure");
