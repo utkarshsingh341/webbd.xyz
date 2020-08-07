@@ -73,12 +73,19 @@ if(isset($_POST['post_button']))
 	    			</table>
 				</div>
 
+
+
+					<!-- If user is on someone elses profile -->
 				<?php
 
 					if($userLoggedIn!=$username)
 					{
 
 				?>
+
+
+
+
 					<div class="card" style="border: 1px solid #fff;box-shadow:  1px 1px 0.5px #ddd;">
 					  <div class="card-body" style="padding: 20px 10px;">
 
@@ -131,49 +138,53 @@ if(isset($_POST['post_button']))
 	      	</div>
 			<div class="col-8">
 				
-				<div class="main_column column" style="margin-bottom: 20px; text-align: right;">
+				
 					
 					<!-- Button trigger modal -->
 					<?php
-
-						if($username!=$userLoggedIn)
+						$logged_in_user_obj = new User($con, $userLoggedIn);
+						if(($username!=$userLoggedIn) && ($logged_in_user_obj->isFriend($username)) )
 						{
 					?>
+					<div class="main_column column" style="margin-bottom: 20px; text-align: right;">
 						<a class="btn btn-secondary" style="color: #fff;" href="messages.php?u=<?php echo $username; ?>">Send a message!</a> &nbsp;
+
+					
+						<input type="submit" data-toggle="modal" data-target="#post_form" value="Post Something!" name="" class="btn btn-primary" style="">
+
+						<!-- Modal -->
+						<div class="modal fade" id="post_form" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+						  <div class="modal-dialog modal-lg" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="exampleModalLabel">Post on <?php echo $user_array['first_name']; ?>'s profile!</h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						      <div class="modal-body">
+						      	<form class="profile_post" action="" method="POST">
+						      		<div class="form-group">
+						      			<textarea class="form-control" name="post_body" placeholder="Write Something..." style="height: 200px;max-height: 200px;"></textarea>
+						      			<input type="hidden" name="user_from" value="<?php echo $userLoggedIn; ?>">
+						      			<input type="hidden" name="user_to" value="<?php echo $username; ?>">
+						      		</div>
+						      	</form>
+						      	<p style="font-size: 13px; padding-left: 5px;">This will appear on @<?php echo $user_array['username']; ?>'s profile and also on the newsfeed for your friends to see!</p>
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						        <button type="button" class="btn btn-primary" name="post_button" id="submit_profile_post">Post!</button>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+			      	</div>
 					<?php
 						}
 					?>
 					
-					<input type="submit" data-toggle="modal" data-target="#post_form" value="Post Something!" name="" class="btn btn-primary" style="">
 
-					<!-- Modal -->
-					<div class="modal fade" id="post_form" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
-					  <div class="modal-dialog modal-lg" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <h5 class="modal-title" id="exampleModalLabel">Post on <?php echo $user_array['first_name']; ?>'s profile!</h5>
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					          <span aria-hidden="true">&times;</span>
-					        </button>
-					      </div>
-					      <div class="modal-body">
-					      	<form class="profile_post" action="" method="POST">
-					      		<div class="form-group">
-					      			<textarea class="form-control" name="post_body" placeholder="Write Something..." style="height: 200px;max-height: 200px;"></textarea>
-					      			<input type="hidden" name="user_from" value="<?php echo $userLoggedIn; ?>">
-					      			<input type="hidden" name="user_to" value="<?php echo $username; ?>">
-					      		</div>
-					      	</form>
-					      	<p style="font-size: 13px; padding-left: 5px;">This will appear on @<?php echo $user_array['username']; ?>'s profile and also on the newsfeed for your friends to see!</p>
-					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					        <button type="button" class="btn btn-primary" name="post_button" id="submit_profile_post">Post!</button>
-					      </div>
-					    </div>
-					  </div>
-					</div>
-		      	</div>
 		      	<div class="posts_area"></div>
 				<img src="assests/images/misc/loading.gif" id="loading" height="20" width="20" align="center">
 		    </div>
