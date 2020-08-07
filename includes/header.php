@@ -65,14 +65,26 @@ if(isset($_SESSION['username']))
 		border-radius: 4px;
 		box-shadow:  1.5px 1.5px 1px #d3d3d3;
 	}
+
 	</style>
  
 </head>
 <body>
-
 	<div class="top_bar" style="">
 		<div class="logo">
-			 <a href="index.php"> <img src="assests/images/misc/logo.png"/> </a>
+			<p style="float: left; width: 21%;">
+				 <a href="index.php"> <img src="assests/images/misc/logo.png"/> </a>
+			</p>
+			 <div class="search" style="float: right; width: 79%;">
+			 	<div class="search_bar_area"><form action="search.php" method="GET" name="search_form">
+			 			<input type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn ?>')" name="q" placeholder="Search..." autocomplete="off" id="search_text_input" class="search_bar">
+			 			<div class="search_button button_holder"><ion-icon name="search"></ion-icon></div>
+			 	</form>	</div>
+			 	<div class="search_results_area">
+				 	<div class="search_results"></div>
+				 	<div class="search_results_footer_empty"></div>
+				 </div>
+			 </div>
 		</div>
 		<nav>
 			<?php

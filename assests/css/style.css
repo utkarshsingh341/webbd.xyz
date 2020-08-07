@@ -40,20 +40,59 @@ a:hover{
 	display: inline-flex;
 	position: fixed;
 	z-index: 10;
+	border-bottom: 1px solid #ddd;
 }
 .logo img{ 
-	margin-left: 10px;
-	top: 16px;
-	left: 5px;
-	position: relative;
+	margin-left: 17px;
 	height: 27px;
-	width: 96px;
+	width: 100px;
+	margin-top: 15px;
 }
 .logo{
     font-size: 1rem;
     font-weight: 300;
-    line-height: 1.6;
     text-align: left;
+	float: left;
+	width: 50%;
+}
+.search
+{
+	padding-top: 11px;
+}
+.search_bar{
+	height: 25px;
+	width: 240px;
+	padding: 0px 10px;
+	padding-left: 20px
+	outline: none;
+	border:none;
+	border-radius: 40px;
+	font-size: 15px;
+}
+.search_bar:focus
+{
+	outline: none;
+	border:none;
+}
+.search_bar_area
+{
+	color:#333;
+	width: 290px;
+	border-radius: 40px;
+	background-color: #fff;
+	padding: 4px;
+
+}
+.search_bar , .search_button
+{
+	display: inline-block;
+  	vertical-align: middle;
+}
+.search_button
+{
+	text-align: right;
+	font-size: 17px;
+	cursor: pointer;
 }
 nav a{
 	position: relative;;
@@ -392,7 +431,7 @@ iframe, label
 {
 	height: 70px;
 	border-bottom: 1px solid #eee;
-	margin: 15px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 .resultDisplay a
 {
@@ -401,18 +440,19 @@ iframe, label
 .LiveSearchProfilePic
 {
 	float: left;
-	width: 11%;
+	width: 10%;
 }
 .LiveSearchProfilePic img
 {
-	height: 60px;
-	width: 60px;
-	border-radius: 60px;
+	height: 50px;
+	width: 50px;
+	border-radius: 50px;
 }
 .LiveSearchText
 {
 	float:right;
-	width: 89%;
+	width: 90%;
+	margin-top: 10px;
 }
 .dropdown_data_window
 {
@@ -463,4 +503,19 @@ iframe, label
 {
 	float:right;
 	width: 80%;
+}
+.search_results_area
+{
+    background: #fff;
+    margin: 7px 0px;
+    border-radius: 7px;
+    width: 400px;
+}
+.search_results
+{
+}
+.search_results_footer
+{
+	padding: 10px;
+	text-align: center;
 }

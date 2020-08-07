@@ -31,7 +31,7 @@ if($query != "")
 
 		if($user->isFriend($row['username']))
 		{
-			echo "<div class='resultDisplay'> 
+			echo "<div class='resultDisplay' style='	padding-top: 10px;'> 
 					<a href='messages.php?u=".$row['username']."'>
 					<div class='LiveSearchProfilePic'>
 						<img src='".$row['profile_pic']."'>
