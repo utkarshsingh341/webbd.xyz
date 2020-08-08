@@ -1,3 +1,3 @@
 # webbd.xyz
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SGkeAWxiRp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Video Example](https://img.youtube.com/vi/SGkeAWxiRp4E/0.jpg)](https://www.youtube.com/watch?v=SGkeAWxiRp4)
