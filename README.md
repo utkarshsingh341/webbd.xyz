@@ -1,4 +1,5 @@
 # webbd.xyz
+_Social Networking Web Application —_
 
 Click the image below to get redirected to a youtube video showing how the site works - 
 
@@ -6,6 +7,13 @@ Click the image below to get redirected to a youtube video showing how the site 
 
 <br>
 
+
+## Languages and tools used
+
+● **PHP** - for general backend and as an Object Oriented Programming language   ●  **MySQL** - for handling queries with the database <br>  ●   **Javascript** (with ***JQuery*** in some instances)  ●   **CSS** (with ***bootstrap*** for basic structure) & **HTML5** for basic site structure  <br> ●   **Ajax**  ●   Database made on ***phpmyAdmin***
+  
+  <br>
+  
 ## Site Features
 
 Register and Login
@@ -74,6 +82,6 @@ Profile Settings Page
   - ***Option to edit profile picture*** - choose profile picture and crop to desired frame and submit
   - Edit general information
   - Change Passwords
-  - ***Deactivate Account Button*** opens a popup asking user once again for surety. If user deactivates account, their messages, posts, comments will be hidden. They can reactivate their account by simply logging in
+  - ***Deactivate Account Button*** opens a popup asking user once again for surety. If user deactivates account, their messages, posts, comments will be hidden. They can reactivate their account by simply logging in again
   
   
